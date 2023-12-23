@@ -14,8 +14,7 @@ export abstract class PanelBase
 
 	abstract getPlaceholderText(): string;
 
-	shouldDisplayContent(): boolean
-	{ return (this.getPlaceholderText() === ""); }
+	abstract shouldDisplayContent(): boolean;
 
 	shouldDisplayPlaceholer(): boolean
 	{ return (!this.shouldDisplayContent()); }
