@@ -12,24 +12,13 @@ import { SidePanelService } from './side-panel.service';
 })
 export class SidePanel
 {
-	// private panelList = Array.from(inject(SidePanelService).getPanels().values());
 	private panelList = inject(SidePanelService).getPanels();
 	private DEFAULT_PANEL_ID = "placeholder";
 	private _currentPanel = this.panelList.get(this.DEFAULT_PANEL_ID);
-	private currentPanelIndex = 0;
 
 	get currentPanel()
-	{
-		// return this.panelList[this.currentPanelIndex];
-		return this._currentPanel;
-	}
+	{ return this._currentPanel; }
 
 	displayNextPanel(panelId: string)
-	{
-		this._currentPanel = this.panelList.get(panelId);
-		// this.currentPanelIndex++;
-
-		// if (this.currentPanelIndex >= this.panelList.length)
-		// { this.currentPanelIndex = 0; }
-	}
+	{ this._currentPanel = this.panelList.get(panelId); }
 }
