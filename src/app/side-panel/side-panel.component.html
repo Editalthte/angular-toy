@@ -1,14 +1,23 @@
 <div>
 	<h3>Panels!</h3>
 
-	<ng-container *ngComponentOutlet="
-		currentPanel.component;
-		inputs: currentPanel.inputs;
-	">
-
-	</ng-container>
+	<div *ngIf="currentPanel">
+		
+		<ng-container *ngComponentOutlet="
+			currentPanel.component;
+			inputs: currentPanel.inputs;
+		"></ng-container>
+	</div>
+	
 </div>
 
 <div>
-	<button (click)="displayNextPanel()">Next</button>
+	<button (click)="displayNextPanel('hello-placeholder')">Placeholder</button>
 </div>
+
+<div>
+	<button (click)="displayNextPanel('hello-content')">Content</button>
+</div>
+
+<!-- <div *ngIf="shouldDisplayPlaceholer(); else elseBlock">{{ getPlaceholderText() }}</div>
+<ng-template #elseBlock><p>This is Hello Panel's normal content!</p></ng-template> -->
