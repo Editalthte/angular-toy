@@ -39,17 +39,3 @@ export class SidePanelService
 		return newPanelMap as unknown as DynamicComponentMap;
 	}
 }
-
-/**
- * 	const newPanelMap = new Map<string, PanelItem>(
-		[
-			// ["categories", categoriesPanel],
-			// ["collaboration", collaborationPanel],
-			// ["editMetadata", editMetadataPanel],
-			// ["editNode", editNodePanel],
-			// ["miiv", miivPanel],
-			["evidence", evidencePanel],
-			["nodeStyle", nodeStylePanel]
-		]
-	);
- */
