@@ -22,7 +22,7 @@ export class SidePanelService
 			new PanelItem("hello-content", HelloPanel, new PanelItemInputs("content", "someDifferentSelection"));
 
 
-		const newPanelMap = new Map<string, any>(
+		const newPanelMap = new Map<string, PanelItem>(
 			[
 				[
 					helloPlaceholderPanel.id,
@@ -36,7 +36,7 @@ export class SidePanelService
 			]
 		)
 
-		return newPanelMap as DynamicComponentMap;
+		return newPanelMap as unknown as DynamicComponentMap;
 	}
 }
 
