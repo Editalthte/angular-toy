@@ -1,11 +1,12 @@
 import { Component, inject } from '@angular/core';
+import { AsyncPipe, NgComponentOutlet } from '@angular/common';
 
 import { SidePanelService } from './side-panel.service';
 
 @Component({
   selector: 'app-side-panel',
   standalone: true,
-  imports: [],
+  imports: [NgComponentOutlet, AsyncPipe],
   templateUrl: './side-panel.component.html',
   styleUrl: './side-panel.component.sass'
 })
