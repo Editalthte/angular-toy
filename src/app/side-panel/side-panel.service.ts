@@ -1,6 +1,10 @@
 import { Injectable, Type } from '@angular/core';
 import { PanelBase } from './panels/panel-base/panel-base.component';
 import { HelloPanel } from './panels/hello-panel/hello-panel.component';
+import { PanelItem } from './panels/panel-item';
+
+type DynamicComponentInputs = Record<string, unknown>;
+type DynamicComponentMap = Map<string, { component: Type<any>, inputs: DynamicComponentInputs }>;
 
 @Injectable({
   providedIn: 'root'
@@ -11,29 +15,35 @@ export class SidePanelService
 
 	getPanels()
 	{
+		const helloPlaceholderPanel: PanelItem =
+		{
+			id: "hello-placeholder",
+			component: HelloPanel,
+			inputs: { modeSetting: "placeholder", selectionType: "someSelection" }
+		};
+
+		const helloContentPanel: PanelItem =
+		{
+			id: "hello-content",
+			component: HelloPanel,
+			inputs: { modeSetting: "content", selectionType: "someDifferentSelection" }
+		}
+
 		const newPanelMap = new Map<string, any>(
 			[
 				[
-					"hello-placeholder",
-					{
-						component: HelloPanel,
-						inputs: { modeSetting: "placeholder", selectionType: "someSelection" }
-					}
+					helloPlaceholderPanel.id,
+					helloPlaceholderPanel
 				],
 
 				[
-					"hello-content",
-					{
-						component: HelloPanel,
-						inputs: { modeSetting: "content", selectionType: "someDifferentSelection" }
-					}
+					helloContentPanel.id,
+					helloContentPanel
 				]
 			]
 		)
 
-		return newPanelMap;
-
-		// as {component: Type<any>, inputs: Record<string, unknown>}[]
+		return newPanelMap as DynamicComponentMap;
 	}
 }
 
