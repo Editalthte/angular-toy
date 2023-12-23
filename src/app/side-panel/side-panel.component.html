@@ -1,1 +1,14 @@
-<p>side-panel works!</p>
+<div>
+	<h3>Panels!</h3>
+
+	<ng-container *ngComponentOutlet="
+		currentPanel.component;
+		inputs: currentPanel.inputs;
+	">
+
+	</ng-container>
+</div>
+
+<div>
+	<button (click)="displayNextPanel()">Next</button>
+</div>
